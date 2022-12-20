@@ -614,12 +614,12 @@ void shm_update(struct dg_shm *shm_dg_data, struct dg_game **games, int len)
 void shm_mk_keys(key_t *shm_key, key_t *shm_sem_key)
 {
 #ifdef USE_SHMEM
-  if ((*shm_key = ftok("dgamelaunch", 'R')) == -1)
+  if ((*shm_key = ftok("/dcss/dgamelaunch", 'R')) == -1)
   {
     debug_write("ftok shm_key");
     graceful_exit(71);
   }
-  if ((*shm_sem_key = ftok("dgamelaunch", 'S')) == -1)
+  if ((*shm_sem_key = ftok("/dcss/dgamelaunch", 'S')) == -1)
   {
     debug_write("ftok shm_sem_key");
     graceful_exit(72);
